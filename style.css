@@ -1,0 +1,35 @@
+*{
+
+}
+.noteBox{
+	/*border: 2px red solid;*/
+	border-radius: 20px;
+	width: 200px;
+	margin: 20px;
+	display: inline-block;
+	text-align: center;
+	background-color: #B388FF;
+}
+
+.title{
+	margin: 5px;
+}
+
+.description{
+	height: 100px;
+	width: 150px;
+	border: 1px black solid;
+}
+
+.update_dec{
+	margin: 5px;
+}
+.button{
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: #FFCDD2;
+}
+.container{
+	background-color: #2196F3;
+	border-radius: 20px;
+}

@@ -1,0 +1,77 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema ajaxNotes
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema ajaxNotes
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `ajaxNotes` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+-- -----------------------------------------------------
+-- Schema ajaxnotes
+-- -----------------------------------------------------
+USE `ajaxNotes` ;
+
+-- -----------------------------------------------------
+-- Table `ajaxNotes`.`notes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ajaxNotes`.`notes` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `title` VARCHAR(45) NULL COMMENT '',
+  `description` TEXT(1000) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  `updated_at` DATETIME NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ajaxNotes`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ajaxNotes`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `name` VARCHAR(45) NULL COMMENT '',
+  `password` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ajaxNotes`.`games`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ajaxNotes`.`games` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `score` VARCHAR(45) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  `users_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  INDEX `fk_games_users_idx` (`users_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_games_users`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `ajaxNotes`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ajaxNotes`.`notes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ajaxNotes`.`notes` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `title` VARCHAR(45) NULL COMMENT '',
+  `description` TEXT(1000) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  `updated_at` DATETIME NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '')
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
